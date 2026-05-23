@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <string.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,7 +43,8 @@
  UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
+ uint8_t uart_buffer[100];
+ const char* surname = "Pozdnyakova";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -88,6 +90,9 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
+  snprintf((char*)uart_buffer, sizeof(uart_buffer), "Student: %s\r\n", surname);
+  HAL_UART_Transmit(&huart1, uart_buffer, strlen((char*)uart_buffer), 100);
 
   /* USER CODE END 2 */
 
