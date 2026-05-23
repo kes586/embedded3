@@ -105,6 +105,7 @@ int main(void)
 	  char debug_msg[] = "LED toggled\r\n";
 	  HAL_UART_Transmit(&huart1, (uint8_t*)debug_msg, strlen(debug_msg), 100);
 
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
