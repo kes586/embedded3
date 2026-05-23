@@ -95,6 +95,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+
+	  char debug_msg[] = "LED toggled\r\n";
+	  HAL_UART_Transmit(&huart1, (uint8_t*)debug_msg, strlen(debug_msg), 100);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
